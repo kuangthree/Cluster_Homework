@@ -8,10 +8,12 @@ class ClusterAlgorithm
 {
 public:
     ClusterAlgorithm();
+    ClusterAlgorithm(const ClusterAlgorithm& src);
     ClusterAlgorithm(int num,const AdjacencyMatrix& am);
     void setClusterNumber(int num);
     void setClusterMaxSize(int num);
     void setAdjacencyMatrix(const AdjacencyMatrix& am);
+    const ClusterAlgorithm& operator=(const ClusterAlgorithm& src);
     QSet<Cluster> getOriginClusterSet()const;
     AdjacencyMatrix getAdjacencyMatrix()const;
     QSet<ClusterAlgorithmOutcomeTuple> singleAlgorithm();

@@ -5,6 +5,11 @@ ClusterAlgorithm::ClusterAlgorithm()
     mClusterMaxSize = INT_MAX;
 }
 
+ClusterAlgorithm::ClusterAlgorithm(const ClusterAlgorithm &src)
+{
+    *this = src;
+}
+
 ClusterAlgorithm::ClusterAlgorithm(int num, const AdjacencyMatrix &am)
 {
     setClusterNumber(num);
@@ -29,6 +34,15 @@ void ClusterAlgorithm::setAdjacencyMatrix(const AdjacencyMatrix& am)
 {
     mAdjacencyMatrix = am;
     mMaxDistance = am.maxDistance();
+}
+
+const ClusterAlgorithm &ClusterAlgorithm::operator=(const ClusterAlgorithm &src)
+{
+    mAdjacencyMatrix = src.mAdjacencyMatrix;
+    mMaxDistance = src.mMaxDistance;
+    mClusterMaxSize = src.mClusterMaxSize;
+    mClusterSet = src.mClusterSet;
+    return *this;
 }
 
 QSet<Cluster> ClusterAlgorithm::getOriginClusterSet() const
