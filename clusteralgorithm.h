@@ -12,6 +12,7 @@ public:
     ClusterAlgorithm(int num,const AdjacencyMatrix& am);
     void setClusterNumber(int num);
     void setClusterMaxSize(int num);
+    void setClusterMinSize(int num);
     void setAdjacencyMatrix(const AdjacencyMatrix& am);
     const ClusterAlgorithm& operator=(const ClusterAlgorithm& src);
     QSet<Cluster> getOriginClusterSet()const;
@@ -22,6 +23,7 @@ public:
 private:
     QSet<Cluster> mClusterSet;
     int mClusterMaxSize;
+    int mClusterMinSize;
     int mMaxDistance;
     AdjacencyMatrix mAdjacencyMatrix;
     bool existsPairClusterMinDistanceSmallerThan(const QSet<Cluster>&set,Cluster& a,Cluster&b,int threshold);
